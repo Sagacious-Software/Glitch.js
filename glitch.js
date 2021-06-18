@@ -1,6 +1,5 @@
 // TODO
 // make better performing line wrap
-// add foxify's fix for cutting off the hanging letters below the canvas
 // dont animate stuff off screen
 // opengl shader instead?????????? css?????????????? i dont know lol
 
@@ -76,7 +75,7 @@ function animationFrame(timestep) {
         const metrics = bufferContext.measureText(text);
         canvas.width = metrics.width;
         canvas.height = metrics.actualBoundingBoxAscent;
-        buffer.width = canvas.width;
+        buffer.width = canvas.width * 1.3; // Account for the bottom of the canvas. Keeps the bottom portions of letters such as g or p.
         buffer.height = canvas.height;
         bufferContext.font = fontSize + ' ' + fontFamily;
 
